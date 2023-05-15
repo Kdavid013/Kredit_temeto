@@ -5,30 +5,27 @@
  */
 package hu.unideb.inf.controller;
 
-import hu.unideb.inf.CemeteryDAO;
-import hu.unideb.inf.JPACemeteryDAO;
-import hu.unideb.inf.model.Kovek;
+import hu.unideb.inf.model.Cemetery.CemeteryDAO;
+import hu.unideb.inf.model.Cemetery.JPACemeteryDAO;
+import hu.unideb.inf.model.Customer.Customer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-import hu.unideb.inf.model.TemetkezesiVallalkozo;
+import hu.unideb.inf.model.Cemetery.TemetkezesiVallalkozo;
+import hu.unideb.inf.model.Customer.CustomerDAO;
+import hu.unideb.inf.model.Customer.JPACustomerDAO;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Table;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -52,7 +49,7 @@ public class CreditCemeteryController implements Initializable {
     private ChoiceBox<String> temetValTipBox;
 
     @FXML
-    private Table keresCustomerTable;
+    private TableView keresCustomerTable;
     @FXML
     void handleButtonPushed(ActionEvent event) {
 
@@ -66,17 +63,27 @@ public class CreditCemeteryController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    @FXML
     void handleSearchButtonPushed(ActionEvent event){
-        try (CemeteryDAO cDAO = new JPACemeteryDAO()) {
+        try (CustomerDAO cDAO = new JPACustomerDAO()) {
             writeData(cDAO);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void writeData(CemeteryDAO cDAO) {
-        keresCustomerTable.
+    private void writeData(CustomerDAO cDAO) {
+        TableColumn<Customer, Integer> ID = new TableColumn<>("ID");
+        ID.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        TableColumn<Customer, String> NEV = new TableColumn<>("NEV");
+        NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
+
+        TableColumn<Customer, String> SZULETESI_HELY = new TableColumn<>("Szuletesi hely");
+        SZULETESI_HELY.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSzuletesiHely()));
+        keresCustomerTable.getColumns().addAll(ID, NEV, SZULETESI_HELY);
+        keresCustomerTable.setItems(cDAO.getCustomer());
+
     }
 
 

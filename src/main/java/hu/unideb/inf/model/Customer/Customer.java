@@ -1,4 +1,7 @@
-package hu.unideb.inf.model;
+package hu.unideb.inf.model.Customer;
+
+import hu.unideb.inf.model.Sirkovek.SirKoves;
+import hu.unideb.inf.model.Cemetery.TemetkezesiVallalkozo;
 
 import javax.persistence.*;
 import java.time.LocalDate;

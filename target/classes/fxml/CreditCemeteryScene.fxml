@@ -7,6 +7,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -139,7 +141,18 @@
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <TextArea layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="569.0" />
-                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
+                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleSearchButtonPushed" text="Betöltés" />
+                                          <TableView fx:id="keresCustomerTable" layoutX="14.0" layoutY="14.0" prefHeight="279.0" prefWidth="568.0">
+                                            <columns>
+                                              <TableColumn fx:id="ID" prefWidth="25.0" text="ID" />
+                                              <TableColumn prefWidth="71.0" text="NEV" />
+                                                <TableColumn prefWidth="104.0" text="SZULETESI HELY" />
+                                                <TableColumn prefWidth="100.0" text="SZULETESI IDO" />
+                                                <TableColumn prefWidth="97.0" text="HALAL IDOPONT" />
+                                                <TableColumn prefWidth="87.0" text="TEMETKEZESI VALLALKOZO" />
+                                                <TableColumn prefWidth="83.0" text="SIRKOVES" />
+                                            </columns>
+                                          </TableView>
                                        </children>
                                     </AnchorPane>
                               </content>
