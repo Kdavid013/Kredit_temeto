@@ -19,6 +19,10 @@ import java.util.Scanner;
 import hu.unideb.inf.model.Cemetery.TemetkezesiVallalkozo;
 import hu.unideb.inf.model.Customer.CustomerDAO;
 import hu.unideb.inf.model.Customer.JPACustomerDAO;
+import hu.unideb.inf.model.Sirkovek.JPASirkovekDAO;
+import hu.unideb.inf.model.Sirkovek.Kovek;
+import hu.unideb.inf.model.Sirkovek.SirkovekDAO;
+import hu.unideb.inf.model.Sirkovek.Urnak;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -52,14 +56,36 @@ public class CreditCemeteryController implements Initializable {
     @FXML private TextField temetValCim;
     @FXML
     private ChoiceBox<String> temetValTipBox;
+    @FXML private TextField urnakNev;
+    @FXML private TextField urnakAr;
+    @FXML private TextField kovekNev;
+    @FXML private TextField kovekAr;
 
     @FXML
     private TableView keresCustomerTable;
 
     @FXML
+<<<<<<< HEAD
     private ChoiceBox<String> temetValchoicebox;
 
 
+=======
+    void handleRockButtonPushted(ActionEvent actionEvent) {
+        try (SirkovekDAO kDAO = new JPASirkovekDAO()) {
+            handleData3(kDAO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void handleButtonPushed(ActionEvent event) {
+        try (SirkovekDAO sDAO = new JPASirkovekDAO()) {
+            handleData2(sDAO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+>>>>>>> urnakkovek
 
     @FXML
     void handleAddButtonPushed(ActionEvent event){
@@ -120,8 +146,6 @@ public class CreditCemeteryController implements Initializable {
 
     }
 
-
-
     private void handleData(CemeteryDAO cDAO) {
         if(multiple.isSelected()){
             try{
@@ -155,6 +179,49 @@ public class CreditCemeteryController implements Initializable {
             tvnew.setTemetesitipus(temetValTipBox.getSelectionModel().getSelectedItem().toString());
 
             cDAO.saveTemetkezesiVallalkozo(tvnew);
+        }
+    }
+
+    private void handleData2(SirkovekDAO sDAO) {
+        if(multiple.isSelected()){
+            try{
+                File f = new File(multipleFile.getText());
+                Scanner sc = new Scanner(f);
+                while(sc.hasNextLine()){
+                    String data = sc.nextLine();
+                    Urnak urVal = new Urnak(data.split(",")[0], Integer.parseInt(data.split(",")[1]) );
+                    sDAO.saveUrnak(urVal);
+                }
+            }
+            catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+        else {
+            System.out.println("Az adatok felvéve");
+            sDAO.saveUrnak(new Urnak(urnakNev.getText(),Integer.parseInt(urnakAr.getText())));
+        }
+    }
+    private void handleData3(SirkovekDAO sDAO) {
+        if(multiple.isSelected()){
+            try{
+                File f = new File(multipleFile.getText());
+                Scanner sc = new Scanner(f);
+                while(sc.hasNextLine()){
+                    String data = sc.nextLine();
+                    Kovek koVal = new Kovek(data.split(",")[0], Integer.parseInt(data.split(",")[1]) );
+                    sDAO.saveKovek(koVal);
+                }
+            }
+            catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+        else {
+            System.out.println("Az adatok felvéve");
+            sDAO.saveKovek(new Kovek(kovekNev.getText(),Integer.parseInt(kovekAr.getText())));
         }
     }
 
