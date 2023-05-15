@@ -1,0 +1,100 @@
+Major Luca,Nyírbogát,1965-02-3,2003-12-9,Garai és Utódai Temetkezés,Ferencz Sírkő Bt.
+Kozma Ramóna,Ebes,1929-11-21,2027-07-7,Szomorúfűz Temetkezés,AKSD - Sírkő
+Lukács Zsanett,Ramocsaháza,1944-04-29,2029-06-11,Sconto Morte Kft.,AKSD - Sírkő
+Somogyi Bálint,Fülesd,1941-01-4,1966-11-20,KRYZANTÉN KER KFT.,Ferencz Sírkő Bt.
+Nagy Gyula,Rétközberencs,1969-06-10,1989-12-2,Takács Temetkezés,Sírkő és Kőfaragó Lugosi György
+Váradi Veronika,Biri,1976-01-21,1998-06-16,KRYZANTÉN KER KFT.,AKSD - Sírkő
+Szalai Renáta,Kisszekeres,1944-04-29,2036-07-3,Szomorúfűz Temetkezés,AKSD - Sírkő
+Márton Tímea,Napkor,1970-10-24,2074-12-11,Sconto Morte Kft.,AKSD - Sírkő
+Szilágyi Benjámin,Kemecse,1971-02-27,1979-04-15,Garai és Utódai Temetkezés,AKSD - Sírkő
+Szabó Lilla,Fülöp,1932-07-7,1953-12-9,Takács Temetkezés,Sírkő és Kőfaragó Lugosi György
+Németh Kata,Tákos,1910-03-13,2040-09-31,Takács Temetkezés,Sírkő és Kőfaragó Lugosi György
+Gál Emese,Hajdúböszörmény,1914-01-9,1987-07-16,Sconto Morte Kft.,Ferencz Sírkő Bt.
+Kelemen Gréta,Petneháza,1914-01-9,1982-10-3,KRYZANTÉN KER KFT.,Ferencz Sírkő Bt.
+Pap Szilveszter,Kántorjánosi,1981-06-13,2001-05-14,Golgota Kegyelet - Temetkezési és Szolgáltató Kft.,Cívis Gránit Kft.
+Takács András,Székely,1944-04-22,2011-10-3,Sconto Morte Kft.,AKSD - Sírkő
+Csonka Szabolcs,Nyírtura,1931-06-18,1985-10-6,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,Sírkő és Kőfaragó Lugosi György
+Soós Lajos,Kishódos,1994-09-1,1925-09-22,ASKD Temetkezés - Ügyfélszolgálati Iroda,AKSD - Sírkő
+Balogh Valentin,Ny,1998-05-24,1973-10-7,ASKD Temetkezés - Ügyfélszolgálati Iroda,Cívis Gránit Kft.
+Tóth Henrik,Körösszegapáti,1968-07-15,2005-07-2,Hosszú & Tóth Temetkezés,AKSD - Sírkő
+Varga Csaba,Olcsva,1981-11-20,1960-04-16,Tronka és Társa Kft,Cívis Gránit Kft.
+Major Luca,Nyírlövő,1906-01-16,2026-11-28,Takács Temetkezés,Sírkő és Kőfaragó Lugosi György
+Orbán Lajos,Pócspetri,1955-02-2,2038-12-14,Omega Temetkezés,Ferencz Sírkő Bt.
+Kovács Alexandra,Szamosszeg,1982-07-8,1998-06-16,Takács Temetkezés,Ferencz Sírkő Bt.
+Jónás Eszter,Hajdúnánás,1984-02-21,1998-06-16,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,AKSD - Sírkő
+Soós Rebeka,Gulács,1994-08-10,2002-12-10,Takács Temetkezés,Ferencz Sírkő Bt.
+Novák Roland,Hajdúhadház,1993-10-13,2012-08-2,Tronka és Társa Kft,Sírkő és Kőfaragó Lugosi György
+Bogdán Valentin,Nagyhódos,1966-09-14,2022-07-29,Tronka és Társa Kft,Sírkő és Kőfaragó Lugosi György
+Bogdán Valentin,Petneháza,1912-02-15,2072-11-8,Hosszú & Tóth Temetkezés,Sírkő és Kőfaragó Lugosi György
+Fehér Nándor,Kék,1950-10-6,2062-08-4,Szomorúfűz Temetkezés,AKSD - Sírkő
+Máté Kitti,Terem,1906-01-16,2005-04-15,Garai és Utódai Temetkezés,AKSD - Sírkő
+Jakab Tamara,Tiszagyulaháza,1969-06-10,2005-07-2,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,Ferencz Sírkő Bt.
+Halász Dorina,Fülesd,1931-06-18,1938-09-8,Golgota Kegyelet - Temetkezési és Szolgáltató Kft.,Cívis Gránit Kft.
+Kocsis Nándor,Császló,1977-09-16,2049-12-11,Tronka és Társa Kft,Sírkő és Kőfaragó Lugosi György
+Kozma Ramóna,Hajdúdorog,1976-12-3,1925-09-22,Hosszú & Tóth Temetkezés,Sírkő és Kőfaragó Lugosi György
+Rácz Éva,Nyírgelse,1978-08-2,2038-07-25,Sconto Morte Kft.,Sírkő és Kőfaragó Lugosi György
+Novák Katalin,Laskod,1963-11-20,1925-09-22,Golgota Kegyelet - Temetkezési és Szolgáltató Kft.,Ferencz Sírkő Bt.
+Horváth Márió,Döge,1903-09-12,2058-08-6,Tronka és Társa Kft,AKSD - Sírkő
+Szabó Lilla,Gyulaháza,1986-11-27,1930-09-30,Jakab Istvánné temetkezési vállalkozó,AKSD - Sírkő
+Balázs György,Kállósemjén,1968-02-16,1945-09-20,Jakab Istvánné temetkezési vállalkozó,Sírkő és Kőfaragó Lugosi György
+Bálint Gréta,Hajdúsámson,1984-02-21,1948-04-19,Omega Temetkezés,Cívis Gránit Kft.
+Mészáros Károly,Barabás,1968-04-2,2032-06-1,KRYZANTÉN KER KFT.,Sírkő és Kőfaragó Lugosi György
+Tamás Áron,Hermánszeg,1906-01-16,1967-10-27,Omega Temetkezés,Sírkő és Kőfaragó Lugosi György
+Márton Boglárka,Ny,1963-11-20,1948-04-19,Hosszú & Tóth Temetkezés,AKSD - Sírkő
+Barna László,Bedő,1970-10-24,2036-07-3,Sconto Morte Kft.,Sírkő és Kőfaragó Lugosi György
+Somogyi Bálint,Görbeháza,1998-05-24,1938-09-8,Sconto Morte Kft.,Sírkő és Kőfaragó Lugosi György
+Soós Rebeka,Penyige,1969-06-10,1948-04-19,Golgota Kegyelet - Temetkezési és Szolgáltató Kft.,Cívis Gránit Kft.
+Barna Roland,Ópályi,1965-10-18,2036-07-3,Hosszú & Tóth Temetkezés,Sírkő és Kőfaragó Lugosi György
+Bálint Gréta,Nyírlövő,1966-09-14,1934-03-23,KRYZANTÉN KER KFT.,Sírkő és Kőfaragó Lugosi György
+Vincze Bernadett,Őr,1956-10-6,1960-04-16,Jakab Istvánné temetkezési vállalkozó,Ferencz Sírkő Bt.
+Szőke Milán,Sonkád,1955-02-2,2055-10-25,Omega Temetkezés,Cívis Gránit Kft.
+Váradi Martin,Benk,1990-09-23,1993-07-8,Sconto Morte Kft.,Ferencz Sírkő Bt.
+Boros Brigitta,Benk,1993-10-13,1923-02-15,Sconto Morte Kft.,Sírkő és Kőfaragó Lugosi György
+Tamás Áron,Bocskaikert,1984-02-29,2062-08-4,Tronka és Társa Kft,Cívis Gránit Kft.
+Hegedűs Marcell,Újtikos,1973-04-16,1947-04-27,Takács Temetkezés,Ferencz Sírkő Bt.
+Bognár Tímea,Komlódtótfalu,1968-07-15,2032-06-1,Jakab Istvánné temetkezési vállalkozó,AKSD - Sírkő
+Rácz Éva,Szerep,1981-11-20,1949-06-16,Jakab Istvánné temetkezési vállalkozó,Cívis Gránit Kft.
+Nemes Bertalan,Komlódtótfalu,1932-07-7,1946-07-17,Jakab Istvánné temetkezési vállalkozó,Ferencz Sírkő Bt.
+Váradi Martin,Nyírderzs,1994-08-10,2043-10-2,Golgota Kegyelet - Temetkezési és Szolgáltató Kft.,AKSD - Sírkő
+Péter Annamária,Rápolt,1950-10-6,1986-04-18,Takács Temetkezés,Sírkő és Kőfaragó Lugosi György
+Kocsis Bertalan,Székely,1942-02-27,1981-05-7,ASKD Temetkezés - Ügyfélszolgálati Iroda,Ferencz Sírkő Bt.
+Márton Rajmund,Magosliget,1969-06-10,1922-11-21,Jakab Istvánné temetkezési vállalkozó,Ferencz Sírkő Bt.
+Illés Rebeka,Cs,1968-02-16,2002-06-30,Omega Temetkezés,Ferencz Sírkő Bt.
+Kovács Andrea,Tiszaeszlár,1991-12-13,2051-02-26,Sconto Morte Kft.,Sírkő és Kőfaragó Lugosi György
+Boros Marcell,Nyíregyháza,1955-02-2,2001-05-14,Hosszú & Tóth Temetkezés,Cívis Gránit Kft.
+Lengyel Roland,Komádi,1910-03-13,1993-07-8,Garai és Utódai Temetkezés,AKSD - Sírkő
+Szőke Milán,Beregsurány,1964-02-4,2006-09-15,KRYZANTÉN KER KFT.,Cívis Gránit Kft.
+Horváth Márió,Berettyóújfalu,1984-05-3,2051-02-26,Tronka és Társa Kft,AKSD - Sírkő
+Barna Botond,Biharnagybajom,1909-08-30,1989-12-2,Szomorúfűz Temetkezés,Sírkő és Kőfaragó Lugosi György
+Jakab Tamara,Nyírmihálydi,1909-08-30,1979-04-15,Golgota Kegyelet - Temetkezési és Szolgáltató Kft.,AKSD - Sírkő
+Orbán Lajos,Ajak,1985-07-26,2006-09-15,Takács Temetkezés,Cívis Gránit Kft.
+Máté Kitti,Nyírjákó,1963-11-20,2023-03-16,Hosszú & Tóth Temetkezés,Sírkő és Kőfaragó Lugosi György
+Vörös Gyula,Dombrád,1976-12-3,1993-07-8,Hosszú & Tóth Temetkezés,Sírkő és Kőfaragó Lugosi György
+Balog* Balázs,Szamoskér,1982-07-8,2043-10-2,Golgota Kegyelet - Temetkezési és Szolgáltató Kft.,AKSD - Sírkő
+Szabó Lilla,Nagykereki,1969-06-10,1934-03-23,KRYZANTÉN KER KFT.,Cívis Gránit Kft.
+Takács András,Ny,1926-11-2,2038-12-14,Garai és Utódai Temetkezés,Sírkő és Kőfaragó Lugosi György
+Szalai Renáta,Kispalád,1937-10-10,2032-06-1,Szomorúfűz Temetkezés,Sírkő és Kőfaragó Lugosi György
+Hegedüs Norbert,Jánd,1977-09-16,1957-09-13,Hosszú & Tóth Temetkezés,AKSD - Sírkő
+Tamás Gabriella,Komádi,1932-08-18,1938-10-4,Sconto Morte Kft.,Ferencz Sírkő Bt.
+Novák Roland,Ártánd,1926-11-2,1968-03-2,Takács Temetkezés,AKSD - Sírkő
+Jónás Eszter,Szamosangyalos,1909-08-30,2006-08-9,Sconto Morte Kft.,Cívis Gránit Kft.
+Csonka Szabolcs,Gelénes,1959-01-7,1923-02-15,Tronka és Társa Kft,Sírkő és Kőfaragó Lugosi György
+Pap Szilveszter,Pap,1992-05-29,1995-09-13,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,AKSD - Sírkő
+Fehér Nándor,Hajdúsámson,1937-01-1,2074-12-11,Hosszú & Tóth Temetkezés,AKSD - Sírkő
+Boros Marcell,Váncsod,1932-08-18,1986-04-18,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,Ferencz Sírkő Bt.
+Szabó Laura,Nyíracsád,1984-01-21,1995-12-25,Hosszú & Tóth Temetkezés,AKSD - Sírkő
+Fehér Nándor,Tiszacsege,1964-08-18,1948-04-19,Omega Temetkezés,AKSD - Sírkő
+Váradi Veronika,Lövőpetri,1993-10-13,2068-04-29,Jakab Istvánné temetkezési vállalkozó,Sírkő és Kőfaragó Lugosi György
+Farkas Szimonetta,Komlódtótfalu,1931-04-19,2038-07-25,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,Cívis Gránit Kft.
+Szőke Milán,Nyírlugos,1933-01-18,1949-06-16,Hosszú & Tóth Temetkezés,Sírkő és Kőfaragó Lugosi György
+Kozma Ramóna,Kaba,1944-05-4,1966-11-20,Omega Temetkezés,AKSD - Sírkő
+Soós Rebeka,Kokad,1909-08-30,2039-05-29,Takács Temetkezés,AKSD - Sírkő
+Orbán Kinga,Kótaj,1925-02-13,2025-05-28,Takács Temetkezés,Sírkő és Kőfaragó Lugosi György
+Kovács Alexandra,Nyírkáta,1985-07-26,2023-05-7,ASKD Temetkezés - Ügyfélszolgálati Iroda,Sírkő és Kőfaragó Lugosi György
+Bogdán Valentin,Barabás,1942-02-27,1945-09-20,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,Ferencz Sírkő Bt.
+Takács Nikolett,Fülöp,1965-10-18,1946-07-17,KRYZANTÉN KER KFT.,Sírkő és Kőfaragó Lugosi György
+Orsós Patrik,Kismarja,1914-01-9,2000-02-2,KRYZANTÉN KER KFT.,AKSD - Sírkő
+Máté Kitti,Nyírcsaholy,1955-02-2,1988-04-1,Tronka és Társa Kft,Sírkő és Kőfaragó Lugosi György
+Kovács Kitti,Nyírcsaholy,1992-05-29,2005-04-15,KRYZANTÉN KER KFT.,AKSD - Sírkő
+Fodor András,Papos,1982-07-8,1976-04-10,Platinum Hajdú-Bihar megyei Temetkezési Vállalat kegyeleti közszolgáltatás és ravatalozás,Sírkő és Kőfaragó Lugosi György
+Hajdu Áron,Terem,1977-09-16,2062-08-4,Sconto Morte Kft.,Cívis Gránit Kft.
