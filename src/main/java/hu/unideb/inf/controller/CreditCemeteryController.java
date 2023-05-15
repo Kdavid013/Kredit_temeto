@@ -65,11 +65,10 @@ public class CreditCemeteryController implements Initializable {
     private TableView keresCustomerTable;
 
     @FXML
-<<<<<<< HEAD
     private ChoiceBox<String> temetValchoicebox;
 
 
-=======
+
     void handleRockButtonPushted(ActionEvent actionEvent) {
         try (SirkovekDAO kDAO = new JPASirkovekDAO()) {
             handleData3(kDAO);
@@ -85,7 +84,7 @@ public class CreditCemeteryController implements Initializable {
             e.printStackTrace();
         }
     }
->>>>>>> urnakkovek
+
 
     @FXML
     void handleAddButtonPushed(ActionEvent event){
