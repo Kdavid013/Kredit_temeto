@@ -69,7 +69,8 @@ public class CreditCemeteryController implements Initializable {
 
 
 
-    void handleRockButtonPushted(ActionEvent actionEvent) {
+    @FXML
+    void handleRockButtonPushed(ActionEvent actionEvent) {
         try (SirkovekDAO kDAO = new JPASirkovekDAO()) {
             handleData3(kDAO);
         } catch (Exception e) {
@@ -182,46 +183,20 @@ public class CreditCemeteryController implements Initializable {
     }
 
     private void handleData2(SirkovekDAO sDAO) {
-        if(multiple.isSelected()){
-            try{
-                File f = new File(multipleFile.getText());
-                Scanner sc = new Scanner(f);
-                while(sc.hasNextLine()){
-                    String data = sc.nextLine();
-                    Urnak urVal = new Urnak(data.split(",")[0], Integer.parseInt(data.split(",")[1]) );
-                    sDAO.saveUrnak(urVal);
-                }
-            }
-            catch (FileNotFoundException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
-        }
-        else {
+            Urnak urVal = new Urnak();
+            urVal.setNev(urnakNev.getText());
+            urVal.setAr(Integer.parseInt(urnakAr.getText()));
+            sDAO.saveUrnak(urVal);
             System.out.println("Az adatok felvéve");
-            sDAO.saveUrnak(new Urnak(urnakNev.getText(),Integer.parseInt(urnakAr.getText())));
-        }
     }
     private void handleData3(SirkovekDAO sDAO) {
-        if(multiple.isSelected()){
-            try{
-                File f = new File(multipleFile.getText());
-                Scanner sc = new Scanner(f);
-                while(sc.hasNextLine()){
-                    String data = sc.nextLine();
-                    Kovek koVal = new Kovek(data.split(",")[0], Integer.parseInt(data.split(",")[1]) );
-                    sDAO.saveKovek(koVal);
-                }
-            }
-            catch (FileNotFoundException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
-        }
-        else {
+
+
+            Kovek koVal = new Kovek();
+            koVal.setNev(kovekNev.getText());
+            koVal.setAr(Integer.parseInt(kovekAr.getText()));
+            sDAO.saveKovek(koVal);
             System.out.println("Az adatok felvéve");
-            sDAO.saveKovek(new Kovek(kovekNev.getText(),Integer.parseInt(kovekAr.getText())));
-        }
     }
 
     /*
