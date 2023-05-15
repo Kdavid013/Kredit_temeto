@@ -1,6 +1,4 @@
-package hu.unideb.inf;
-
-import hu.unideb.inf.model.*;
+package hu.unideb.inf.model.Sirkovek;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,61 +6,9 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class JPACemeteryDAO implements CemeteryDAO {
-
+public class JPASirkovekDAO implements SirkovekDAO{
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-    @Override
-    public void saveCustomer(Customer c) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(c);
-        entityManager.getTransaction().commit();
-    }
-    @Override
-    public void deleteCustomer(Customer c) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(c);
-        entityManager.getTransaction().commit();
-    }
-    @Override
-    public void updateCustomer(Customer c) {
-        saveCustomer(c);
-    }
-
-    @Override
-    public List<Customer> getCustomer() {
-        TypedQuery<Customer> query = entityManager.createQuery("SELECT c FROM Customer c", Customer.class);
-        List<Customer> customers = query.getResultList();
-        return customers;
-    }
-
-    @Override
-    public void saveTemetkezesiVallalkozo(TemetkezesiVallalkozo tv) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(tv);
-        entityManager.getTransaction().commit();
-    }
-
-    @Override
-    public void deleteTemetkezesiVallalkozo(TemetkezesiVallalkozo tv) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(tv);
-        entityManager.getTransaction().commit();
-    }
-
-    @Override
-    public void updateTemetkezesiVallalkozo(TemetkezesiVallalkozo tv) {
-        saveTemetkezesiVallalkozo(tv);
-    }
-
-    @Override
-    public List<TemetkezesiVallalkozo> getTV() {
-        TypedQuery<TemetkezesiVallalkozo> query = entityManager.createQuery("SELECT tv FROM TemetkezesiVallalkozo tv", TemetkezesiVallalkozo.class);
-        List<TemetkezesiVallalkozo> tvs = query.getResultList();
-        return tvs;
-    }
-
     @Override
     public void saveSirkove(SirKoves sk) {
         entityManager.getTransaction().begin();
@@ -140,10 +86,11 @@ public class JPACemeteryDAO implements CemeteryDAO {
         List<Urnak> urnak = query.getResultList();
         return urnak;
     }
-
     @Override
     public void close() throws Exception {
         entityManager.close();
         entityManagerFactory.close();
     }
+
+
 }

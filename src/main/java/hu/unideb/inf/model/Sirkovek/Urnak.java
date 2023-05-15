@@ -1,16 +1,16 @@
-package hu.unideb.inf.model;
+package hu.unideb.inf.model.Sirkovek;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Kovek implements Serializable {
+public class Urnak implements Serializable {
     @Id
     private String nev;
     private int ar;
 
-    public Kovek(String nev, int ar) {
+    public Urnak(String nev, int ar) {
         this.nev = nev;
         this.ar = ar;
     }
@@ -33,7 +33,7 @@ public class Kovek implements Serializable {
 
     @Override
     public String toString() {
-        return "Kovek{" +
+        return "Urnak{" +
                 "nev='" + nev + '\'' +
                 ", ar=" + ar +
                 '}';

@@ -1,4 +1,4 @@
-package hu.unideb.inf.model;
+package hu.unideb.inf.model.Sirkovek;
 
 import org.hibernate.annotations.Cascade;
 
