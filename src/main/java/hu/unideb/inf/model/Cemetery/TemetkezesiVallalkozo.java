@@ -4,20 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class TemetkezesiVallalkozo {
+public class TemetkezesiVallalkozo implements Serializable {
     @Id
     private String nev;
     private String elerhetoseg;//?
     private String cim;
     private String temetesitipus;
 
-    public TemetkezesiVallalkozo(String nev, String elerhetoseg, String cim, String temetesitipus) {
-        this.nev = nev;
-        this.cim = cim;
-        this.elerhetoseg = elerhetoseg;
-        this.temetesitipus = temetesitipus;
+    public TemetkezesiVallalkozo() {
+
     }
 
     public String getNev() {

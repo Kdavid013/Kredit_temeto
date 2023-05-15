@@ -10,9 +10,8 @@ public class Kovek implements Serializable {
     private String nev;
     private int ar;
 
-    public Kovek(String nev, int ar) {
-        this.nev = nev;
-        this.ar = ar;
+    public Kovek() {
+
     }
 
     public String getNev() {

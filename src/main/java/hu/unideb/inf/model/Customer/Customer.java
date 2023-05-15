@@ -4,10 +4,11 @@ import hu.unideb.inf.model.Sirkovek.SirKoves;
 import hu.unideb.inf.model.Cemetery.TemetkezesiVallalkozo;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Customer {
+public class Customer implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
@@ -22,13 +23,8 @@ public class Customer {
     @JoinColumn(name = "Sirkoves")
     private SirKoves sirkoves;
 
-    public Customer(String nev, LocalDate szuletesiIdo, String szuletesiHely, LocalDate halalIdopontja, TemetkezesiVallalkozo temetkezesiVallalkozo, SirKoves sirkoves) {
-        this.nev = nev;
-        this.szuletesiIdo = szuletesiIdo;
-        this.szuletesiHely = szuletesiHely;
-        this.halalIdopontja = halalIdopontja;
-        this.temetkezesiVallalkozo = temetkezesiVallalkozo;
-        this.sirkoves = sirkoves;
+    public Customer() {
+
     }
 
     public String getNev() {
