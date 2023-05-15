@@ -12,6 +12,7 @@ import hu.unideb.inf.model.Customer.Customer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -19,6 +20,8 @@ import hu.unideb.inf.model.Cemetery.TemetkezesiVallalkozo;
 import hu.unideb.inf.model.Customer.CustomerDAO;
 import hu.unideb.inf.model.Customer.JPACustomerDAO;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +29,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import javax.swing.*;
 
 /**
  * FXML Controller class
@@ -50,10 +55,11 @@ public class CreditCemeteryController implements Initializable {
 
     @FXML
     private TableView keresCustomerTable;
-    @FXML
-    void handleButtonPushed(ActionEvent event) {
 
-    }
+    @FXML
+    private ChoiceBox<String> temetValchoicebox;
+
+
 
     @FXML
     void handleAddButtonPushed(ActionEvent event){
@@ -72,6 +78,33 @@ public class CreditCemeteryController implements Initializable {
         }
     }
 
+
+
+    @FXML
+    void customerSelected(){
+        try (CemeteryDAO cDAO = new JPACemeteryDAO()) {
+            getData(cDAO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void getData(CemeteryDAO cDAO){
+        List<TemetkezesiVallalkozo> tvs = cDAO.getTV();
+        ObservableList<String> tvsnev = FXCollections.observableArrayList();
+        for (TemetkezesiVallalkozo e : tvs){
+            tvsnev.add(e.getNev());
+        }
+        temetValchoicebox.setItems(tvsnev);
+    }
+
+
+
+//    void getTemetkezesiVallalkozoData(){
+//        CemeteryDAO tvDAO = new JPACemeteryDAO();
+//        for (TemetkezesiVallalkozo p : tvDAO.getTV()) {
+//            temetkezesivallalkozocustomer.getItems().add(p.getNev());
+//        }
+//    }
     private void writeData(CustomerDAO cDAO) {
         TableColumn<Customer, Integer> ID = new TableColumn<>("ID");
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -82,6 +115,7 @@ public class CreditCemeteryController implements Initializable {
         TableColumn<Customer, String> SZULETESI_HELY = new TableColumn<>("Szuletesi hely");
         SZULETESI_HELY.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSzuletesiHely()));
         keresCustomerTable.getColumns().addAll(ID, NEV, SZULETESI_HELY);
+
         keresCustomerTable.setItems(cDAO.getCustomer());
 
     }
@@ -95,7 +129,12 @@ public class CreditCemeteryController implements Initializable {
                 Scanner sc = new Scanner(f);
                 while(sc.hasNextLine()){
                     String data = sc.nextLine();
-                    TemetkezesiVallalkozo temetVal = new TemetkezesiVallalkozo(data.split(",")[0],data.split(",")[1],data.split(",")[2],data.split(",")[3]);
+                    TemetkezesiVallalkozo temetVal = new TemetkezesiVallalkozo();
+                    temetVal.setNev(data.split(",")[0]);
+                    temetVal.setCim(data.split(",")[1]);
+                    temetVal.setTemetesitipus(data.split(",")[3]);
+                    temetVal.setElerhetoseg(data.split(",")[2]);
+
                     cDAO.saveTemetkezesiVallalkozo(temetVal);
                 }
             }
@@ -109,7 +148,13 @@ public class CreditCemeteryController implements Initializable {
             System.out.println(temetValTipBox.getSelectionModel().getSelectedItem().toString());
             System.out.println(temetValCim.getText());
             System.out.println(temetValEler.getText());
-            cDAO.saveTemetkezesiVallalkozo(new TemetkezesiVallalkozo(temetValNev.getText(),temetValEler.getText(),temetValCim.getText(),temetValTipBox.getSelectionModel().getSelectedItem().toString()));
+            TemetkezesiVallalkozo tvnew = new TemetkezesiVallalkozo();
+            tvnew.setCim(temetValCim.getText());
+            tvnew.setElerhetoseg(temetValEler.getText());
+            tvnew.setNev(temetValNev.getText());
+            tvnew.setTemetesitipus(temetValTipBox.getSelectionModel().getSelectedItem().toString());
+
+            cDAO.saveTemetkezesiVallalkozo(tvnew);
         }
     }
 
@@ -119,6 +164,8 @@ public class CreditCemeteryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         temetValTipBox.setItems(temetesitipus);
+        //getTemetkezesiVallalkozoData();
+
     }
 
 }

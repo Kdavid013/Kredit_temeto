@@ -6,10 +6,11 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SirKoves {
+public class SirKoves implements Serializable {
     @Id
     private String nev;
     private String elerhetoseg;
@@ -23,12 +24,8 @@ public class SirKoves {
     @ElementCollection(targetClass = Urnak.class)
     private List<Urnak> urnak;
 
-    public SirKoves(String nev, String elerhetoseg, String cim, List<Kovek> kovek, List<Urnak> urnak) {
-        this.nev = nev;
-        this.elerhetoseg = elerhetoseg;
-        this.cim = cim;
-        this.kovek = kovek;
-        this.urnak = urnak;
+    public SirKoves() {
+
     }
 
     public String getNev() {

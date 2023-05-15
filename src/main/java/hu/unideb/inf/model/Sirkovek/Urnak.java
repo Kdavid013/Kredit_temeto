@@ -10,9 +10,8 @@ public class Urnak implements Serializable {
     private String nev;
     private int ar;
 
-    public Urnak(String nev, int ar) {
-        this.nev = nev;
-        this.ar = ar;
+    public Urnak() {
+
     }
 
     public String getNev() {
