@@ -110,22 +110,13 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button fx:id="addKo" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleRockButtonPushted" text="Betöltés" />
+                                          <Button fx:id="addKo" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleRockButtonPushed" text="Betöltés" />
                                           <Label text="Név:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
                                           <Label text="Ár:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" />
                                           <TextField fx:id="kovekNev" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
                                           <TextField fx:id="kovekAr" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
                                        </children>
                                     </AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="Kövek">
-                                 <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="601.0" />
-                                       </content>
-                                    </ScrollPane>
                                  </content>
                               </Tab>
                            </tabs>
