@@ -28,6 +28,7 @@ import javafx.scene.control.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Table;
 
 /**
  * FXML Controller class
@@ -49,6 +50,9 @@ public class CreditCemeteryController implements Initializable {
     @FXML private TextField temetValCim;
     @FXML
     private ChoiceBox<String> temetValTipBox;
+
+    @FXML
+    private Table keresCustomerTable;
     @FXML
     void handleButtonPushed(ActionEvent event) {
 
@@ -56,13 +60,27 @@ public class CreditCemeteryController implements Initializable {
 
     @FXML
     void handleAddButtonPushed(ActionEvent event){
-
         try (CemeteryDAO cDAO = new JPACemeteryDAO()) {
             handleData(cDAO);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    void handleSearchButtonPushed(ActionEvent event){
+        try (CemeteryDAO cDAO = new JPACemeteryDAO()) {
+            writeData(cDAO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writeData(CemeteryDAO cDAO) {
+        keresCustomerTable.
+    }
+
+
+
     private void handleData(CemeteryDAO cDAO) {
         if(multiple.isSelected()){
             try{
@@ -80,12 +98,15 @@ public class CreditCemeteryController implements Initializable {
             }
         }
         else {
-            TemetkezesiVallalkozo temetVal2 = new TemetkezesiVallalkozo(temetValNev.getText(),temetValEler.getText(),temetValCim.getText(),temetValTipBox.getSelectionModel().getSelectedItem());
-            cDAO.saveTemetkezesiVallalkozo(temetVal2);
+            System.out.println(temetValNev.getText());
+            System.out.println(temetValTipBox.getSelectionModel().getSelectedItem().toString());
+            System.out.println(temetValCim.getText());
+            System.out.println(temetValEler.getText());
+            cDAO.saveTemetkezesiVallalkozo(new TemetkezesiVallalkozo(temetValNev.getText(),temetValEler.getText(),temetValCim.getText(),temetValTipBox.getSelectionModel().getSelectedItem().toString()));
         }
     }
 
-    /**
+    /*
      * Initializes the controller class.
      */
     @Override
