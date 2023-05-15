@@ -61,7 +61,7 @@
                                           <Label layoutX="30.0" layoutY="120.0" text="Temetési típus:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="160.0" />
                                           <TextField fx:id="temetValNev" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
                                           <TextField fx:id="temetValEler" layoutX="30.0" layoutY="40.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
-                                          <TextField fx:id="temetValcim" layoutX="30.0" layoutY="90.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="130.0" />
+                                          <TextField fx:id="temetValCim" layoutX="30.0" layoutY="90.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="130.0" />
                                           <ChoiceBox fx:id="temetValTipBox" layoutX="20.0" layoutY="184.0" minHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0" />
                                           <RadioButton fx:id="multiple" layoutX="20.0" layoutY="222.0" mnemonicParsing="false" text="Töbszörös hozzáadás" />
                                           <Label layoutX="30.0" layoutY="170.0" text="Töbszörös hozzáadáshoz adja meg a fájl nevét:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="250.0" />

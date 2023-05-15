@@ -19,14 +19,12 @@ public class JPACemeteryDAO implements CemeteryDAO {
         entityManager.persist(c);
         entityManager.getTransaction().commit();
     }
-
     @Override
     public void deleteCustomer(Customer c) {
         entityManager.getTransaction().begin();
         entityManager.remove(c);
         entityManager.getTransaction().commit();
     }
-
     @Override
     public void updateCustomer(Customer c) {
         saveCustomer(c);
