@@ -71,6 +71,9 @@ public class CreditCemeteryController implements Initializable {
     @FXML private ChoiceBox torlesCustomers,torlesTV,torlesSK,torlesK,torlesU;
     @FXML private TextField skNev,skCim,skEler;
 
+    @FXML private TextField cusHalali;
+    @FXML private ChoiceBox cusTemetk, cusSirk;
+
 
 
     @FXML
@@ -403,7 +406,27 @@ public class CreditCemeteryController implements Initializable {
         skDAO.saveSirkove(sk);
     }
     @FXML void addCustomer(){
+        CustomerDAO cDAO = new JPACustomerDAO();
+        SirkovekDAO skDAO = new JPASirkovekDAO();
+        CemeteryDAO cemDAO = new JPACemeteryDAO();
 
+        List<TemetkezesiVallalkozo> temetValList = cemDAO.getTV();
+        ObservableList<String> temetvalNev = FXCollections.observableArrayList();
+        for(TemetkezesiVallalkozo tv : temetValList){
+            temetvalNev.add(tv.getNev());
+        }
+
+        List<SirKoves> sirKovesList = skDAO.getSK();
+        ObservableList<String> sirkovesNev = FXCollections.observableArrayList();
+        for(SirKoves sk : sirKovesList){
+            sirkovesNev.add(sk.getNev());
+        }
+
+
+        Customer cus = new Customer();
+        cus.setHalalIdopontja(LocalDate.parse(cusHalali.getText()));
+        cus.setTemetkezesiVallalkozo(cusTemetk.getSelectionModel().getSelectedItem().toString());
+        cus.setSirkoves(cusSirk.getSelectionModel().getSelectedItem().toString());
     }
 
     /*
