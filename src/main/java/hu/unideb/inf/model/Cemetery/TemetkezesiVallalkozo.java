@@ -1,9 +1,8 @@
 package hu.unideb.inf.model.Cemetery;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import hu.unideb.inf.model.Sirkovek.SirKoves;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -17,6 +16,8 @@ public class TemetkezesiVallalkozo implements Serializable {
     public TemetkezesiVallalkozo() {
 
     }
+
+
 
     public String getNev() {
         return nev;

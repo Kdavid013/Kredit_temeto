@@ -14,6 +14,7 @@ public interface CemeteryDAO extends AutoCloseable {
     public void deleteTemetkezesiVallalkozo(TemetkezesiVallalkozo tv);
     public void updateTemetkezesiVallalkozo(TemetkezesiVallalkozo tv);
     public ObservableList<TemetkezesiVallalkozo> getTV();
+    public TemetkezesiVallalkozo getTemetkezesiVallalkozo(String tvNev);
 
 
 

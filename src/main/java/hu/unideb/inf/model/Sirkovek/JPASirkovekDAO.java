@@ -26,6 +26,13 @@ public class JPASirkovekDAO implements SirkovekDAO{
         entityManager.remove(sk);
         entityManager.getTransaction().commit();
     }
+    @Override
+    public SirKoves getSirkoves(String SirkovesNev){
+        entityManager.getTransaction().begin();
+        TypedQuery<SirKoves> query = entityManager.createQuery("SELECT sk FROM SirKoves sk WHERE sk.nev="+ "'" +SirkovesNev+ "'", SirKoves.class);
+        SirKoves sk = query.getSingleResult();
+        return sk;
+    }
 
     @Override
     public void updateSirkoves(SirKoves sk) {

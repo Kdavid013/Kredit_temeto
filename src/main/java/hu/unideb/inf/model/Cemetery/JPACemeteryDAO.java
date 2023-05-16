@@ -17,7 +17,11 @@ public class JPACemeteryDAO implements CemeteryDAO {
 
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
-
+    public TemetkezesiVallalkozo getTemetkezesiVallalkozo(String tvNev){
+        TypedQuery<TemetkezesiVallalkozo> query = entityManager.createQuery("SELECT tv FROM TemetkezesiVallalkozo tv where tv.nev="+ "'" +tvNev+ "'", TemetkezesiVallalkozo.class);
+        TemetkezesiVallalkozo tv = query.getSingleResult();
+        return tv;
+    }
     @Override
     public void saveTemetkezesiVallalkozo(TemetkezesiVallalkozo tv) {
         entityManager.getTransaction().begin();

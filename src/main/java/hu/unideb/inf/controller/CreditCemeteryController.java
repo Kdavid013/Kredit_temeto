@@ -50,6 +50,7 @@ public class CreditCemeteryController implements Initializable {
     @FXML private TextField temetValEler;
     @FXML private TextField temetValCim;
     @FXML private ChoiceBox<String> temetValTipBox;
+    @FXML private ChoiceBox<String> sirkovesValChoicebox;
 
     @FXML private TextField urnakNev;
     @FXML private TextField urnakAr;
@@ -63,6 +64,14 @@ public class CreditCemeteryController implements Initializable {
     @FXML private TableView keresKTable;
     @FXML private TableView keresUTable;
 
+    @FXML
+    private TextField uNev;
+    @FXML
+    private TextField uSzulHely;
+    @FXML
+    private TextField uSzulIdo;
+    @FXML
+    private TextField uHalalIdo;
 
 
     @FXML
@@ -107,7 +116,14 @@ public class CreditCemeteryController implements Initializable {
             e.printStackTrace();
         }
     }
-        @FXML
+
+    @FXML
+    void writeDataU(){
+
+    }
+
+
+    @FXML
     void writeDataTV() {
         keresTVTable.getSelectionModel().clearSelection();
         keresTVTable.getItems().clear();
@@ -156,7 +172,7 @@ public class CreditCemeteryController implements Initializable {
         keresSKTable.setItems(skDAO.getSK());
     }
 
-    @FXML void writeDataK(){
+    @FXML void writeDataK() {
         keresKTable.getSelectionModel().clearSelection();
         keresKTable.getItems().clear();
         keresKTable.getColumns().clear();
@@ -168,23 +184,8 @@ public class CreditCemeteryController implements Initializable {
         TableColumn<Kovek, String> AR = new TableColumn<>("Ar");
         AR.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().getAr())));
 
-        keresKTable.getColumns().addAll(NEV,AR);
+        keresKTable.getColumns().addAll(NEV, AR);
         keresKTable.setItems(skDAO.getK());
-    }
-    @FXML void writeDataU(){
-        keresUTable.getSelectionModel().clearSelection();
-        keresUTable.getItems().clear();
-        keresUTable.getColumns().clear();
-
-        SirkovekDAO skDAO = new JPASirkovekDAO();
-        TableColumn<Urnak, String> NEV = new TableColumn<>("Nev");
-        NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
-
-        TableColumn<Urnak, String> AR = new TableColumn<>("Ar");
-        AR.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().getAr())));
-
-        keresUTable.getColumns().addAll(NEV,AR);
-        keresUTable.setItems(skDAO.getU());
     }
 
     @FXML void selectTorles(){
@@ -278,19 +279,28 @@ public class CreditCemeteryController implements Initializable {
     
     @FXML
     void customerSelected(){
-        try (CemeteryDAO cDAO = new JPACemeteryDAO()) {
-            getData(cDAO);
+        try (CemeteryDAO cDAO = new JPACemeteryDAO();SirkovekDAO sDAO = new JPASirkovekDAO()) {
+            getData(cDAO,sDAO);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    private void getData(CemeteryDAO cDAO){
+    private void getData(CemeteryDAO cDAO,SirkovekDAO sDAO){
         List<TemetkezesiVallalkozo> tvs = cDAO.getTV();
         ObservableList<String> tvsnev = FXCollections.observableArrayList();
         for (TemetkezesiVallalkozo e : tvs){
             tvsnev.add(e.getNev());
         }
         temetValchoicebox.setItems(tvsnev);
+
+        List<SirKoves> sks = sDAO.getSK();
+        ObservableList<String> sksnev = FXCollections.observableArrayList();
+        for (SirKoves s : sks){
+            sksnev.add(s.getNev());
+        }
+
+        sirkovesValChoicebox.setItems(sksnev);
+
     }
 
     private void writeData(CustomerDAO cDAO) {
@@ -402,9 +412,61 @@ public class CreditCemeteryController implements Initializable {
 
         skDAO.saveSirkove(sk);
     }
-    @FXML void addCustomer(){
+    @FXML void addCustomer() {
+        try {
+            SirkovekDAO sDAO = new JPASirkovekDAO();
+            CustomerDAO cDAO = new JPACustomerDAO();
+            CemeteryDAO tvDAO = new JPACemeteryDAO();
 
+            Customer c = new Customer();
+            if(uNev.getText().equals("")){
+                throw new Exception("Nincs név megadva! Add meg és folytasd!");
+            }else{
+                c.setNev(uNev.getText());
+            }
+
+            if(uSzulIdo.getText().equals("")){
+                throw new Exception("Nincs születési dátum megadva! Add meg és folytasd!");
+            }else{
+                c.setSzuletesiIdo(LocalDate.parse(uSzulIdo.getText()));
+            }
+
+            if(uSzulHely.getText().equals("")){
+                throw new Exception("Nincs születési hely megadva! Add meg és folytasd!");
+            }else{
+                c.setSzuletesiHely(uSzulHely.getText());
+            }
+
+            if(uHalalIdo.getText().equals("")){
+                throw new Exception("Nincs halálozási dátum megadva! Add meg és folytasd!");
+            }else{
+                c.setHalalIdopontja(LocalDate.parse(uHalalIdo.getText()));
+            }
+
+
+            if (temetValchoicebox.getSelectionModel().getSelectedItem() == null) {
+                throw new Exception("Nincs kiválasztva temetkezési vállalkozó!");
+            }else{
+                c.setTemetkezesiVallalkozo(tvDAO.getTemetkezesiVallalkozo(temetValchoicebox.getSelectionModel().getSelectedItem().toString()));
+            }
+
+            if (sirkovesValChoicebox.getSelectionModel().getSelectedItem() == null) {
+                throw new Exception("Nincs kiválasztva sírköves!");
+            }else{
+               c.setSirkoves(sDAO.getSirkoves(sirkovesValChoicebox.getSelectionModel().getSelectedItem().toString()));
+            }
+            cDAO.updateCustomer(c);
+
+
+        }catch(Exception e){
+            showErrorDialog(e);
+        }
     }
+
+
+        //c.setTemetkezesiVallalkozo();
+
+
 
     /*
      * Initializes the controller class.
@@ -414,6 +476,15 @@ public class CreditCemeteryController implements Initializable {
         temetValTipBox.setItems(temetesitipus);
         //getTemetkezesiVallalkozoData();
 
+    }
+    private void showErrorDialog(Exception e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Dialog");
+        System.err.println(e.getMessage());
+            alert.setHeaderText("Ajjaj! Hibába ütköztünk!");
+            alert.setContentText(e.getMessage());
+
+        alert.showAndWait();
     }
 
 }
