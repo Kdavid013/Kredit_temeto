@@ -15,14 +15,10 @@ public class SirKoves implements Serializable {
     private String nev;
     private String elerhetoseg;
     private String cim;
-    @JoinTable
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    @ElementCollection(targetClass = Kovek.class)
-    private List<Kovek> kovek;
-    @JoinTable
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    @ElementCollection(targetClass = Urnak.class)
-    private List<Urnak> urnak;
+
+    private String kovek;
+
+    private String urnak;
 
     public SirKoves() {
 
@@ -52,19 +48,19 @@ public class SirKoves implements Serializable {
         this.cim = cim;
     }
 
-    public List<Kovek> getKovek() {
+    public String getKovek() {
         return kovek;
     }
 
-    public void setKovek(List<Kovek> kovek) {
+    public void setKovek(String kovek) {
         this.kovek = kovek;
     }
 
-    public List<Urnak> getUrnak() {
+    public String getUrnak() {
         return urnak;
     }
 
-    public void setUrnak(List<Urnak> urnak) {
+    public void setUrnak(String urnak) {
         this.urnak = urnak;
     }
 

@@ -19,10 +19,7 @@ import java.util.Scanner;
 import hu.unideb.inf.model.Cemetery.TemetkezesiVallalkozo;
 import hu.unideb.inf.model.Customer.CustomerDAO;
 import hu.unideb.inf.model.Customer.JPACustomerDAO;
-import hu.unideb.inf.model.Sirkovek.JPASirkovekDAO;
-import hu.unideb.inf.model.Sirkovek.Kovek;
-import hu.unideb.inf.model.Sirkovek.SirkovekDAO;
-import hu.unideb.inf.model.Sirkovek.Urnak;
+import hu.unideb.inf.model.Sirkovek.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -126,9 +123,27 @@ public class CreditCemeteryController implements Initializable {
 
     @FXML
     void writeDataSK(){
-        
+        SirkovekDAO skDAO = new JPASirkovekDAO();
+        TableColumn<SirKoves, String> NEV = new TableColumn<>("Nev");
+        NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
+
+        TableColumn<SirKoves, String> ELERHETOSEG = new TableColumn<>("Elerhetoseg");
+        ELERHETOSEG.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getElerhetoseg()));
+
+        TableColumn<SirKoves, String> CIM = new TableColumn<>("Cim");
+        CIM.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCim()));
+
+        TableColumn<SirKoves, String> Kovek = new TableColumn<>("Kovek");
+        Kovek.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getKovek()));
+
+        TableColumn<SirKoves, String> Urnak = new TableColumn<>("Kovek");
+        Kovek.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getUrnak()));
+
+        keresTVTable.getColumns().addAll(NEV,ELERHETOSEG,CIM,Kovek,Urnak);
+        keresTVTable.setItems(skDAO.getSK());
     }
 
+    
     @FXML
     void customerSelected(){
         try (CemeteryDAO cDAO = new JPACemeteryDAO()) {

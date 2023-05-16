@@ -1,5 +1,7 @@
 package hu.unideb.inf.model.Sirkovek;
 
+import javafx.collections.ObservableList;
+
 import java.util.List;
 
 public interface SirkovekDAO extends AutoCloseable{
@@ -10,7 +12,7 @@ public interface SirkovekDAO extends AutoCloseable{
     public void deleteSirkoves(SirKoves sk);
     public void updateSirkoves(SirKoves sk);
 
-    public List<SirKoves> getSK();
+    public ObservableList<SirKoves> getSK();
 
     //Sirkovek adatintézés
     public void saveKovek(Kovek k);
