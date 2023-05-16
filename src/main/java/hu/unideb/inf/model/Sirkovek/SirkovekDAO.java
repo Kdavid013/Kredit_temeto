@@ -19,6 +19,8 @@ public interface SirkovekDAO extends AutoCloseable{
     public void deleteKovek(Kovek k);
     public void updateKovek(Kovek k);
 
+    public SirKoves getSirkoves(String SirkovesNev);
+
     public ObservableList<Kovek> getK();
 
     //Urnak adatintézés

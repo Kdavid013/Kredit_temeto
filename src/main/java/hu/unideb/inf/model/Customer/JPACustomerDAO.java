@@ -28,7 +28,9 @@ public class JPACustomerDAO implements CustomerDAO {
     }
     @Override
     public void updateCustomer(Customer c) {
-        saveCustomer(c);
+        entityManager.getTransaction().begin();
+        entityManager.merge(c);
+        entityManager.getTransaction().commit();
     }
 
     @Override
