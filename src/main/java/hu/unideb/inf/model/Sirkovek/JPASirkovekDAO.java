@@ -1,5 +1,9 @@
 package hu.unideb.inf.model.Sirkovek;
 
+import hu.unideb.inf.model.Customer.Customer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -29,10 +33,14 @@ public class JPASirkovekDAO implements SirkovekDAO{
     }
 
     @Override
-    public List<SirKoves> getSK() {
-        TypedQuery<SirKoves> query = entityManager.createQuery("SELECT sk FROM Sirkoves sk", SirKoves.class);
-        List<SirKoves> sks = query.getResultList();
-        return sks;
+    public ObservableList<SirKoves> getSK() {
+        ObservableList<SirKoves> sirkovesss = FXCollections.observableArrayList();
+        TypedQuery<SirKoves> query = entityManager.createQuery("SELECT sk FROM Sirkoves c", SirKoves.class);
+        List<SirKoves> sirkovess = query.getResultList();
+        for(SirKoves sirkoves : sirkovess){
+            sirkovesss.add(sirkoves);
+        }
+        return sirkovesss;
     }
 
     @Override
