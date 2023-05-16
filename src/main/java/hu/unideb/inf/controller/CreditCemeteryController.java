@@ -425,8 +425,8 @@ public class CreditCemeteryController implements Initializable {
 
         Customer cus = new Customer();
         cus.setHalalIdopontja(LocalDate.parse(cusHalali.getText()));
-        cus.setTemetkezesiVallalkozo(cusTemetk.getSelectionModel().getSelectedItem().toString());
-        cus.setSirkoves(cusSirk.getSelectionModel().getSelectedItem().toString());
+        //cus.setTemetkezesiVallalkozo(cusTemetk.getSelectionModel().getSelectedItem().toString());
+        //cus.setSirkoves(cusSirk.getSelectionModel().getSelectedItem().toString());
 
         cDAO.saveCustomer(cus);
     }
