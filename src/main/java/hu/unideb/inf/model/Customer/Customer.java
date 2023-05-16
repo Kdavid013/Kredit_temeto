@@ -87,4 +87,8 @@ public class Customer implements Serializable {
                 ", sirkoves=" + sirkoves +
                 '}';
     }
+
+    public Integer getId() {
+        return id;
+    }
 }

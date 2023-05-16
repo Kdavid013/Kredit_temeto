@@ -56,6 +56,8 @@ public class CreditCemeteryController implements Initializable {
     @FXML
     private TableView keresCustomerTable;
 
+    @FXML TableView keresTVTable;
+
     @FXML
     private ChoiceBox<String> temetValchoicebox;
 
@@ -70,15 +72,36 @@ public class CreditCemeteryController implements Initializable {
         }
     }
     @FXML
-    void handleSearchButtonPushed(ActionEvent event){
+    void handleSearchButtonPushedCustomer(ActionEvent event){
         try (CustomerDAO cDAO = new JPACustomerDAO()) {
             writeData(cDAO);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    @FXML
+    void writeDataTV() {
+        CemeteryDAO cDAO = new JPACemeteryDAO();
+        TableColumn<TemetkezesiVallalkozo, String> NEV = new TableColumn<>("Nev");
+        NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
 
+        TableColumn<TemetkezesiVallalkozo, String> ELERHETOSEG = new TableColumn<>("Elerhetoseg");
+        ELERHETOSEG.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getElerhetoseg()));
 
+        TableColumn<TemetkezesiVallalkozo, String> CIM = new TableColumn<>("Cim");
+        CIM.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCim()));
+
+        TableColumn<TemetkezesiVallalkozo, String> TEMETESITIPUS = new TableColumn<>("Temetesi tipus");
+        TEMETESITIPUS.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTemetesitipus()));
+
+        keresTVTable.getColumns().addAll(NEV,ELERHETOSEG,CIM,TEMETESITIPUS);
+        keresTVTable.setItems(cDAO.getTV());
+    }
+
+    @FXML
+    void writeDataSK(){
+        
+    }
 
     @FXML
     void customerSelected(){
@@ -96,9 +119,6 @@ public class CreditCemeteryController implements Initializable {
         }
         temetValchoicebox.setItems(tvsnev);
     }
-
-
-
 //    void getTemetkezesiVallalkozoData(){
 //        CemeteryDAO tvDAO = new JPACemeteryDAO();
 //        for (TemetkezesiVallalkozo p : tvDAO.getTV()) {
@@ -109,18 +129,27 @@ public class CreditCemeteryController implements Initializable {
         TableColumn<Customer, Integer> ID = new TableColumn<>("ID");
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        TableColumn<Customer, String> NEV = new TableColumn<>("NEV");
+        TableColumn<Customer, String> NEV = new TableColumn<>("Nev");
         NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
 
         TableColumn<Customer, String> SZULETESI_HELY = new TableColumn<>("Szuletesi hely");
         SZULETESI_HELY.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSzuletesiHely()));
-        keresCustomerTable.getColumns().addAll(ID, NEV, SZULETESI_HELY);
 
+        TableColumn<Customer, String> SZULETESI_IDO = new TableColumn<>("Szuletesi ido");
+        SZULETESI_IDO.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSzuletesiIdo().toString()));
+
+        TableColumn<Customer, String> HALAL_IDOPONTJA = new TableColumn<>("Halal idopontja");
+        HALAL_IDOPONTJA.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getHalalIdopontja().toString()));
+
+        TableColumn<Customer, String> TEMETKEZESI_VALALKOZO = new TableColumn<>("Temetkezesi vallalkozo");
+        TEMETKEZESI_VALALKOZO.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTemetkezesiVallalkozo().getNev()));
+
+        TableColumn<Customer, String> SIRKOVES = new TableColumn<>("Sirkoves");
+        SIRKOVES.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSirkoves().getNev()));
+
+        keresCustomerTable.getColumns().addAll(ID, NEV, SZULETESI_HELY,SZULETESI_IDO,HALAL_IDOPONTJA,TEMETKEZESI_VALALKOZO,SIRKOVES);
         keresCustomerTable.setItems(cDAO.getCustomer());
-
     }
-
-
 
     private void handleData(CemeteryDAO cDAO) {
         if(multiple.isSelected()){
