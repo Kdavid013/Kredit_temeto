@@ -1,12 +1,11 @@
 package hu.unideb.inf.model.Sirkovek;
 
+import hu.unideb.inf.model.Customer.Customer;
 import org.hibernate.annotations.Cascade;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,10 +14,20 @@ public class SirKoves implements Serializable {
     private String nev;
     private String elerhetoseg;
     private String cim;
-
     private String kovek;
-
     private String urnak;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Sirkoves")
+    private List<Customer> customers = new ArrayList<>();
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
 
     public SirKoves() {
 

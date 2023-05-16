@@ -12,6 +12,7 @@ import hu.unideb.inf.model.Customer.Customer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -66,7 +67,9 @@ public class CreditCemeteryController implements Initializable {
 
     @FXML
     private ChoiceBox<String> temetValchoicebox;
+    @FXML private ChoiceBox skKovekChoiceBox,skUrnakChoiceBox;
     @FXML private ChoiceBox torlesCustomers,torlesTV,torlesSK,torlesK,torlesU;
+    @FXML private TextField skNev,skCim,skEler;
 
 
 
@@ -162,8 +165,8 @@ public class CreditCemeteryController implements Initializable {
         TableColumn<Kovek, String> NEV = new TableColumn<>("Nev");
         NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
 
-        TableColumn<SirKoves, String> AR = new TableColumn<>("Ar");
-        AR.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getElerhetoseg()));
+        TableColumn<Kovek, String> AR = new TableColumn<>("Ar");
+        AR.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().getAr())));
 
         keresKTable.getColumns().addAll(NEV,AR);
         keresKTable.setItems(skDAO.getK());
@@ -174,11 +177,11 @@ public class CreditCemeteryController implements Initializable {
         keresUTable.getColumns().clear();
 
         SirkovekDAO skDAO = new JPASirkovekDAO();
-        TableColumn<Kovek, String> NEV = new TableColumn<>("Nev");
+        TableColumn<Urnak, String> NEV = new TableColumn<>("Nev");
         NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
 
-        TableColumn<SirKoves, String> AR = new TableColumn<>("Ar");
-        AR.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getElerhetoseg()));
+        TableColumn<Urnak, String> AR = new TableColumn<>("Ar");
+        AR.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().getAr())));
 
         keresUTable.getColumns().addAll(NEV,AR);
         keresUTable.setItems(skDAO.getU());
@@ -370,6 +373,37 @@ public class CreditCemeteryController implements Initializable {
             koVal.setAr(Integer.parseInt(kovekAr.getText()));
             sDAO.saveKovek(koVal);
             System.out.println("Az adatok felvéve");
+    }
+
+    @FXML void selectSK(){
+        SirkovekDAO skDAO = new JPASirkovekDAO();
+        List<Kovek> koveks = skDAO.getK();
+        ObservableList<String> kovekNev = FXCollections.observableArrayList();
+        for (Kovek e : koveks){
+            kovekNev.add(e.getNev());
+        }
+        skKovekChoiceBox.setItems(kovekNev);
+
+        List<Urnak> urnaks = skDAO.getU();
+        ObservableList<String> urnakNev = FXCollections.observableArrayList();
+        for(Urnak e : urnaks){
+            urnakNev.add(e.getNev());
+        }
+        skUrnakChoiceBox.setItems(urnakNev);
+    }
+    @FXML void addSK(){
+        SirkovekDAO skDAO = new JPASirkovekDAO();
+        SirKoves sk = new SirKoves();
+        sk.setNev(skNev.getText());
+        sk.setCim(skCim.getText());
+        sk.setElerhetoseg(skEler.getText());
+        sk.setKovek(skKovekChoiceBox.getSelectionModel().getSelectedItem().toString());
+        sk.setUrnak(skUrnakChoiceBox.getSelectionModel().getSelectedItem().toString());
+
+        skDAO.saveSirkove(sk);
+    }
+    @FXML void addCustomer(){
+
     }
 
     /*
