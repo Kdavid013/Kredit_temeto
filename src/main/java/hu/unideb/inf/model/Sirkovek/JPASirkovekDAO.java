@@ -35,7 +35,7 @@ public class JPASirkovekDAO implements SirkovekDAO{
     @Override
     public ObservableList<SirKoves> getSK() {
         ObservableList<SirKoves> sirkovesss = FXCollections.observableArrayList();
-        TypedQuery<SirKoves> query = entityManager.createQuery("SELECT sk FROM Sirkoves sk", SirKoves.class);
+        TypedQuery<SirKoves> query = entityManager.createQuery("SELECT sk FROM SirKoves sk", SirKoves.class);
         List<SirKoves> sirkovess = query.getResultList();
         for(SirKoves sirkoves : sirkovess){
             sirkovesss.add(sirkoves);

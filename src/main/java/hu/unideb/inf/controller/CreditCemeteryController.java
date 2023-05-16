@@ -62,8 +62,11 @@ public class CreditCemeteryController implements Initializable {
     @FXML private TableView keresKTable;
     @FXML private TableView keresUTable;
 
+
+
     @FXML
     private ChoiceBox<String> temetValchoicebox;
+    @FXML private ChoiceBox torlesCustomers,torlesTV,torlesSK,torlesK,torlesU;
 
 
 
@@ -181,21 +184,93 @@ public class CreditCemeteryController implements Initializable {
         keresUTable.setItems(skDAO.getU());
     }
 
-    @FXML void deleteCustomer(){
+    @FXML void selectTorles(){
+        System.out.println("törlés választva");
+        ObservableList<String> cusNev = FXCollections.observableArrayList();
+        ObservableList<String> tvNev = FXCollections.observableArrayList();
+        ObservableList<String> skNev = FXCollections.observableArrayList();
+        ObservableList<String> kNev = FXCollections.observableArrayList();
+        ObservableList<String> uNev = FXCollections.observableArrayList();
 
+        CustomerDAO cusDAO = new JPACustomerDAO();
+        List<Customer> customers = cusDAO.getCustomer();
+        for(Customer e: customers){
+            cusNev.add(e.getNev());
+        }
+        torlesCustomers.setItems(cusNev);
+
+        CemeteryDAO cDAO = new JPACemeteryDAO();
+        List<TemetkezesiVallalkozo> tvs = cDAO.getTV();
+        for (TemetkezesiVallalkozo e : tvs){
+            tvNev.add(e.getNev());
+        }
+        torlesTV.setItems(tvNev);
+
+        SirkovekDAO sDAO = new JPASirkovekDAO();
+        List<SirKoves> sirkovesek = sDAO.getSK();
+        for(SirKoves e : sirkovesek){
+            skNev.add(e.getNev());
+        }
+        torlesSK.setItems(skNev);
+
+        List<Kovek> koveks = sDAO.getK();
+        for (Kovek e : koveks){
+            kNev.add(e.getNev());
+        }
+        torlesK.setItems(kNev);
+
+        List<Urnak> urnaks = sDAO.getU();
+        for (Urnak e : urnaks){
+            uNev.add(e.getNev());
+        }
+        torlesU.setItems(uNev);
+    }
+
+    @FXML void deleteCustomer(){
+        CustomerDAO cDAO = new JPACustomerDAO();
+        ObservableList<Customer> customers = cDAO.getCustomer();
+        for(Customer e : customers){
+            if(e.getNev().equals(torlesCustomers.getSelectionModel().getSelectedItem())){
+                cDAO.deleteCustomer(e);
+            }
+        }
     }
 
     @FXML void deleteTV(){
-
+        CemeteryDAO cDAO = new JPACemeteryDAO();
+        ObservableList<TemetkezesiVallalkozo> tvs = cDAO.getTV();
+        for(TemetkezesiVallalkozo e : tvs){
+            if(e.getNev().equals(torlesTV.getSelectionModel().getSelectedItem())){
+                cDAO.deleteTemetkezesiVallalkozo(e);
+            }
+        }
     }
     @FXML void deleteSK(){
-
+        SirkovekDAO sDAO = new JPASirkovekDAO();
+        ObservableList<SirKoves> sks = sDAO.getSK();
+        for(SirKoves e : sks){
+            if(e.getNev().equals(torlesSK.getSelectionModel().getSelectedItem())){
+                sDAO.deleteSirkoves(e);
+            }
+        }
     }
     @FXML void deleteK(){
-
+        SirkovekDAO sDAO = new JPASirkovekDAO();
+        ObservableList<Kovek> koveks = sDAO.getK();
+        for(Kovek e : koveks){
+            if(e.getNev().equals(torlesK.getSelectionModel().getSelectedItem())){
+                sDAO.deleteKovek(e);
+            }
+        }
     }
     @FXML void deleteU(){
-
+        SirkovekDAO sDao = new JPASirkovekDAO();
+        ObservableList<Urnak> urnaks = sDao.getU();
+        for (Urnak e : urnaks){
+            if(e.getNev().equals(torlesU.getSelectionModel().getSelectedItem())){
+                sDao.deleteUrnak(e);
+            }
+        }
     }
     
     @FXML
@@ -289,7 +364,6 @@ public class CreditCemeteryController implements Initializable {
             System.out.println("Az adatok felvéve");
     }
     private void handleData3(SirkovekDAO sDAO) {
-
 
             Kovek koVal = new Kovek();
             koVal.setNev(kovekNev.getText());
