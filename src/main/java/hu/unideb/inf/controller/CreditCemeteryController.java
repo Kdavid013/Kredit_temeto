@@ -41,18 +41,15 @@ import javax.swing.*;
 public class CreditCemeteryController implements Initializable {
 
     ObservableList<String> temetesitipus = FXCollections.observableArrayList("Koporso","Urna");
-    @FXML
-    private Button addTV,addSK,addCustomer,addKo,addUrna;
-    @FXML
-    private RadioButton multiple;
-    @FXML
-    private TextField multipleFile;
+
+    @FXML private RadioButton multiple;
+    @FXML private TextField multipleFile;
     @FXML
     private TextField temetValNev;
     @FXML private TextField temetValEler;
     @FXML private TextField temetValCim;
-    @FXML
-    private ChoiceBox<String> temetValTipBox;
+    @FXML private ChoiceBox<String> temetValTipBox;
+
     @FXML private TextField urnakNev;
     @FXML private TextField urnakAr;
     @FXML private TextField kovekNev;
@@ -60,8 +57,10 @@ public class CreditCemeteryController implements Initializable {
 
     @FXML
     private TableView keresCustomerTable;
-
-    @FXML TableView keresTVTable;
+    @FXML private TableView keresTVTable;
+    @FXML private TableView keresSKTable;
+    @FXML private TableView keresKTable;
+    @FXML private TableView keresUTable;
 
     @FXML
     private ChoiceBox<String> temetValchoicebox;
@@ -102,8 +101,12 @@ public class CreditCemeteryController implements Initializable {
             e.printStackTrace();
         }
     }
-    @FXML
+        @FXML
     void writeDataTV() {
+        keresTVTable.getSelectionModel().clearSelection();
+        keresTVTable.getItems().clear();
+        keresTVTable.getColumns().clear();
+
         CemeteryDAO cDAO = new JPACemeteryDAO();
         TableColumn<TemetkezesiVallalkozo, String> NEV = new TableColumn<>("Nev");
         NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
@@ -123,6 +126,10 @@ public class CreditCemeteryController implements Initializable {
 
     @FXML
     void writeDataSK(){
+        keresSKTable.getSelectionModel().clearSelection();
+        keresSKTable.getItems().clear();
+        keresSKTable.getColumns().clear();
+
         SirkovekDAO skDAO = new JPASirkovekDAO();
         TableColumn<SirKoves, String> NEV = new TableColumn<>("Nev");
         NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
@@ -136,13 +143,60 @@ public class CreditCemeteryController implements Initializable {
         TableColumn<SirKoves, String> Kovek = new TableColumn<>("Kovek");
         Kovek.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getKovek()));
 
-        TableColumn<SirKoves, String> Urnak = new TableColumn<>("Kovek");
+        TableColumn<SirKoves, String> Urnak = new TableColumn<>("Urnak");
         Kovek.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getUrnak()));
 
-        keresTVTable.getColumns().addAll(NEV,ELERHETOSEG,CIM,Kovek,Urnak);
-        keresTVTable.setItems(skDAO.getSK());
+        keresSKTable.getColumns().addAll(NEV,ELERHETOSEG,CIM,Kovek,Urnak);
+        keresSKTable.setItems(skDAO.getSK());
     }
 
+    @FXML void writeDataK(){
+        keresKTable.getSelectionModel().clearSelection();
+        keresKTable.getItems().clear();
+        keresKTable.getColumns().clear();
+
+        SirkovekDAO skDAO = new JPASirkovekDAO();
+        TableColumn<Kovek, String> NEV = new TableColumn<>("Nev");
+        NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
+
+        TableColumn<SirKoves, String> AR = new TableColumn<>("Ar");
+        AR.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getElerhetoseg()));
+
+        keresKTable.getColumns().addAll(NEV,AR);
+        keresKTable.setItems(skDAO.getK());
+    }
+    @FXML void writeDataU(){
+        keresUTable.getSelectionModel().clearSelection();
+        keresUTable.getItems().clear();
+        keresUTable.getColumns().clear();
+
+        SirkovekDAO skDAO = new JPASirkovekDAO();
+        TableColumn<Kovek, String> NEV = new TableColumn<>("Nev");
+        NEV.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getNev()));
+
+        TableColumn<SirKoves, String> AR = new TableColumn<>("Ar");
+        AR.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getElerhetoseg()));
+
+        keresUTable.getColumns().addAll(NEV,AR);
+        keresUTable.setItems(skDAO.getU());
+    }
+
+    @FXML void deleteCustomer(){
+
+    }
+
+    @FXML void deleteTV(){
+
+    }
+    @FXML void deleteSK(){
+
+    }
+    @FXML void deleteK(){
+
+    }
+    @FXML void deleteU(){
+
+    }
     
     @FXML
     void customerSelected(){
@@ -160,13 +214,12 @@ public class CreditCemeteryController implements Initializable {
         }
         temetValchoicebox.setItems(tvsnev);
     }
-//    void getTemetkezesiVallalkozoData(){
-//        CemeteryDAO tvDAO = new JPACemeteryDAO();
-//        for (TemetkezesiVallalkozo p : tvDAO.getTV()) {
-//            temetkezesivallalkozocustomer.getItems().add(p.getNev());
-//        }
-//    }
+
     private void writeData(CustomerDAO cDAO) {
+        keresCustomerTable.getSelectionModel().clearSelection();
+        keresCustomerTable.getItems().clear();
+        keresCustomerTable.getColumns().clear();
+
         TableColumn<Customer, Integer> ID = new TableColumn<>("ID");
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
 

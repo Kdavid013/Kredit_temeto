@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b5a0cf-7943-496b-baa9-de87fd9d7258" name="Changes" comment="" />
+    <list default="true" id="22b5a0cf-7943-496b-baa9-de87fd9d7258" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hu/unideb/inf/controller/CreditCemeteryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hu/unideb/inf/controller/CreditCemeteryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hu/unideb/inf/model/Sirkovek/JPASirkovekDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hu/unideb/inf/model/Sirkovek/JPASirkovekDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hu/unideb/inf/model/Sirkovek/SirkovekDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hu/unideb/inf/model/Sirkovek/SirkovekDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/CreditCemeteryScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/CreditCemeteryScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/CreditCemeteryScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/CreditCemeteryScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hu/unideb/inf/controller/CreditCemeteryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hu/unideb/inf/controller/CreditCemeteryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +34,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -35,8 +51,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/bvass/OneDrive/Documents/GitHub/Kredit_temeto",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/grado/Documents/GitHub/Kredit_temetoí_1",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0"

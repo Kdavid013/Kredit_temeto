@@ -19,12 +19,12 @@ public interface SirkovekDAO extends AutoCloseable{
     public void deleteKovek(Kovek k);
     public void updateKovek(Kovek k);
 
-    public List<Kovek> getK();
+    public ObservableList<Kovek> getK();
 
     //Urnak adatintézés
     public void saveUrnak(Urnak u);
     public void deleteUrnak(Urnak u);
     public void updateUrnak(Urnak u);
-    public List<Urnak> getU();
+    public ObservableList<Urnak> getU();
 
 }

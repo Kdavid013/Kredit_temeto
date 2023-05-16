@@ -8,7 +8,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -44,7 +43,6 @@
                                                 <Label layoutX="360.0" layoutY="262.0" text="Többszörös hozzáadáshoz adja meg a fájlnevét:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="350.0" />
                                                 <RadioButton layoutX="23.0" layoutY="320.0" mnemonicParsing="false" text="Többszörös hozzáadás" />
                                                 <TextField layoutX="30.0" layoutY="190.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="370.0" />
-                                                <ChoiceBox fx:id="temetValTipBox2" layoutX="365.0" layoutY="97.0" prefWidth="150.0" />
                                              </children>
                                           </AnchorPane>
                                       </content>
@@ -96,11 +94,11 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button fx:id="addUrna" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleAddButtonPushed" text="Betöltés" />
+                                          <Button fx:id="addUrna" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleButtonPushed" text="Betöltés" />
                                           <Label layoutX="14.0" layoutY="14.0" text="Név:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
                                           <Label layoutX="30.0" layoutY="20.0" text="Ár:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" />
-                                          <TextField minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
-                                          <TextField layoutX="30.0" layoutY="40.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                                          <TextField fx:id="urnakNev" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+                                          <TextField fx:id="urnakAr" layoutX="30.0" layoutY="40.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -109,18 +107,13 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button fx:id="addKo" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleAddButtonPushed" text="Betöltés" />
+                                          <Button fx:id="addKo" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleRockButtonPushed" text="Betöltés" />
+                                          <Label text="Név:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                                          <Label text="Ár:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" />
+                                          <TextField fx:id="kovekNev" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+                                          <TextField fx:id="kovekAr" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
                                        </children>
                                     </AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="Kövek">
-                                 <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="601.0" />
-                                       </content>
-                                    </ScrollPane>
                                  </content>
                               </Tab>
                            </tabs>
@@ -159,8 +152,8 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
-                                          <TableView prefHeight="300.0" prefWidth="600.0" />
+                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#writeDataSK" text="Betöltés" />
+                                          <TableView fx:id="keresSKTable" prefHeight="300.0" prefWidth="600.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -169,8 +162,8 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
-                                          <TableView prefHeight="300.0" prefWidth="600.0" />
+                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#writeDataU" text="Betöltés" />
+                                          <TableView fx:id="keresUTable" prefHeight="300.0" prefWidth="600.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -179,8 +172,8 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
-                                          <TableView prefHeight="300.0" prefWidth="600.0" />
+                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#writeDataK" text="Betöltés" />
+                                          <TableView fx:id="keresKTable" prefHeight="300.0" prefWidth="600.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -191,7 +184,7 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Keresés">
+            <Tab text="Törlés">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="240.0" prefWidth="478.0">
                      <children>
@@ -201,9 +194,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextArea layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="569.0" />
-                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleSearchButtonPushedCustomer" text="Betöltés" />
-                                          <TableView fx:id="keresCustomerTable1" layoutX="14.0" layoutY="14.0" prefHeight="279.0" prefWidth="568.0" />
+                                          <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
+                                          <ChoiceBox layoutX="14.0" layoutY="42.0" prefWidth="150.0" />
+                                          <Label layoutX="14.0" layoutY="14.0" text="Válassza ki mit akar törölni" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -212,8 +205,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextArea layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="569.0" />
                                           <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
+                                          <ChoiceBox layoutX="14.0" layoutY="57.0" prefWidth="150.0" />
+                                          <Label layoutX="14.0" layoutY="14.0" text="Válassza ki mit akar törölni" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -222,8 +216,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextArea layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="569.0" />
                                           <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
+                                          <ChoiceBox layoutX="14.0" layoutY="59.0" prefWidth="150.0" />
+                                          <Label layoutX="14.0" layoutY="14.0" text="Válassza ki mit akar törölni" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -232,8 +227,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextArea layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="569.0" />
                                           <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
+                                          <ChoiceBox layoutX="14.0" layoutY="55.0" prefWidth="150.0" />
+                                          <Label layoutX="14.0" layoutY="14.0" text="Válassza ki mit akar törölni" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -242,8 +238,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TextArea layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="569.0" />
                                           <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" text="Betöltés" />
+                                          <ChoiceBox layoutX="14.0" layoutY="60.0" prefWidth="150.0" />
+                                          <Label layoutX="14.0" layoutY="14.0" text="Válassza ki mit akar törölni" />
                                        </children>
                                     </AnchorPane>
                                  </content>

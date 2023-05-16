@@ -35,7 +35,7 @@ public class JPASirkovekDAO implements SirkovekDAO{
     @Override
     public ObservableList<SirKoves> getSK() {
         ObservableList<SirKoves> sirkovesss = FXCollections.observableArrayList();
-        TypedQuery<SirKoves> query = entityManager.createQuery("SELECT sk FROM Sirkoves c", SirKoves.class);
+        TypedQuery<SirKoves> query = entityManager.createQuery("SELECT sk FROM Sirkoves sk", SirKoves.class);
         List<SirKoves> sirkovess = query.getResultList();
         for(SirKoves sirkoves : sirkovess){
             sirkovesss.add(sirkoves);
@@ -63,10 +63,14 @@ public class JPASirkovekDAO implements SirkovekDAO{
     }
 
     @Override
-    public List<Kovek> getK() {
+    public ObservableList<Kovek> getK() {
+        ObservableList<Kovek> kosss = FXCollections.observableArrayList();
         TypedQuery<Kovek> query = entityManager.createQuery("SELECT k FROM Kovek k", Kovek.class);
-        List<Kovek> kovek = query.getResultList();
-        return kovek ;
+        List<Kovek> koss = query.getResultList();
+        for(Kovek ko : koss){
+            kosss.add(ko);
+        }
+        return kosss;
     }
 
     @Override
@@ -89,10 +93,15 @@ public class JPASirkovekDAO implements SirkovekDAO{
     }
 
     @Override
-    public List<Urnak> getU() {
+    public ObservableList<Urnak> getU() {
+
+        ObservableList<Urnak> usss = FXCollections.observableArrayList();
         TypedQuery<Urnak> query = entityManager.createQuery("SELECT u FROM Urnak u", Urnak.class);
-        List<Urnak> urnak = query.getResultList();
-        return urnak;
+        List<Urnak> uss = query.getResultList();
+        for(Urnak u : uss){
+            usss.add(u);
+        }
+        return usss;
     }
     @Override
     public void close() throws Exception {

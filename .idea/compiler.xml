@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Kredit_temetoí_1" />
         <module name="JavaFX11" />
       </profile>
     </annotationProcessing>
