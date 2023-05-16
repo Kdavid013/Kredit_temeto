@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.CreditCemeteryController">
    <children>
-      <TabPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CFAF6B; -fx-border-color: #93594C;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Hozzáadás">
                <content>
@@ -23,19 +23,21 @@
                            <tabs>
                               <Tab onSelectionChanged="#customerSelected" text="Customer">
                                  <content>
-                                    <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="600.0" vbarPolicy="ALWAYS" vvalue="1.0">
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="600.0" vbarPolicy="ALWAYS">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="601.0" style="-fx-background-color: #CFAF6B;">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="601.0">
                                              <children>
                                                 <Label layoutX="14.0" layoutY="14.0" text="Név:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
                                                 <Label layoutX="30.0" layoutY="20.0" text="Születési hely:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" />
                                                 <Label layoutX="30.0" layoutY="70.0" text="Temetkezési Vállalkozó:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="210.0" />
                                                 <Label layoutX="30.0" layoutY="70.0" text="Halál időpontja:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="160.0" />
                                                 <Label layoutX="30.0" layoutY="170.0" text="Születési idő:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="110.0" />
-                                                <TextField minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
-                                                <TextField fx:id="cusHalali" layoutX="30.0" layoutY="140.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0" />
-                                                <ChoiceBox fx:id="cusTemetk" layoutX="19.0" layoutY="228.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="230.0" />
-                                                <ChoiceBox fx:id="cusSirk" layoutX="30.0" layoutY="240.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="280.0" />
+                                                <TextField fx:id="cNev" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+                                                <TextField fx:id="cSzulHely" layoutX="30.0" layoutY="40.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                                                <TextField fx:id="cSzulIdo" layoutX="30.0" layoutY="90.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="130.0" />
+                                                <TextField fx:id="cHalIdo" layoutX="30.0" layoutY="140.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0" />
+                                                <ChoiceBox fx:id="temetValchoicebox" layoutX="19.0" layoutY="228.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="230.0" />
+                                                <ChoiceBox fx:id="sirkovesChoiceBox" layoutX="30.0" layoutY="240.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="280.0" />
                                                 <Button layoutX="505.0" layoutY="280.0" mnemonicParsing="false" onAction="#addCustomer" text="Hozzáadás" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0" />
                                                 <Label layoutX="30.0" layoutY="220.0" text="Sírköves:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="260.0" />
                                                 <Label layoutX="360.0" layoutY="262.0" text="Többszörös hozzáadáshoz adja meg a fájlnevét:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="350.0" />
@@ -128,8 +130,8 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="keresCustomerTable" prefHeight="339.0" prefWidth="600.0" />
                                           <Button layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleSearchButtonPushedCustomer" text="Betöltés" />
+                                          <TableView fx:id="keresCustomerTable" prefHeight="300.0" prefWidth="600.0" />
                                        </children>
                                     </AnchorPane>
                               </content>
