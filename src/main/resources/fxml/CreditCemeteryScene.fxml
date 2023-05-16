@@ -75,19 +75,17 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button fx:id="addSK" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleAddButtonPushed" text="Hozzáad" />
+                                          <Button fx:id="addSK" layoutX="526.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleData4" text="Hozzáad" />
                                           <Label layoutX="107.0" layoutY="105.0" text="Név:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
                                           <Label layoutX="283.0" layoutY="129.0" text="Elérhetőség:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" />
                                           <Label layoutX="249.0" layoutY="57.0" text="Cím:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="110.0" />
                                           <Label layoutX="91.0" layoutY="39.0" text="Kövek:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="160.0" />
-                                          <TextField layoutX="20.0" layoutY="128.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="130.0" />
-                                          <TextField layoutX="20.0" layoutY="78.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
-                                          <TextField layoutX="14.0" layoutY="28.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+                                          <TextField fx:id="sirkovesCim" layoutX="20.0" layoutY="128.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="130.0" />
+                                          <TextField fx:id="sirkovesEler" layoutX="20.0" layoutY="78.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+                                          <TextField fx:id="sirkovesNev" layoutX="14.0" layoutY="28.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
                                           <Label layoutX="18.0" layoutY="205.0" text="Urnák:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="210.0" />
-                                          <TextField layoutX="30.0" layoutY="140.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0" />
-                                          <TextField layoutX="30.0" layoutY="190.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="230.0" />
-                                          <Label layoutX="329.0" layoutY="187.0" text="Vesszővel elválsztva adja meg a köveket." />
-                                          <Label layoutX="329.0" layoutY="236.0" text="Vesszővel elválsztva adja meg a urnákat." />
+                                          <ChoiceBox fx:id="sirkovesKovek" layoutX="20.0" layoutY="178.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0" />
+                                          <ChoiceBox fx:id="sirkovesUrnak" layoutX="20.0" layoutY="228.0" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="240.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>

@@ -61,6 +61,12 @@ public class CreditCemeteryController implements Initializable {
     @FXML private TextField kovekNev;
     @FXML private TextField kovekAr;
 
+    @FXML private TextField sirkovesNev;
+    @FXML private TextField sirkovesEler;
+    @FXML private TextField sirkovesCim;
+    @FXML private ChoiceBox sirkovesKovek;
+    @FXML private ChoiceBox sirkovesUrnak;
+
     @FXML
     private TableView keresCustomerTable;
 
@@ -228,6 +234,19 @@ public class CreditCemeteryController implements Initializable {
             koVal.setAr(Integer.parseInt(kovekAr.getText()));
             sDAO.saveKovek(koVal);
             System.out.println("Az adatok felvéve");
+    }
+
+    private void handleData4(SirkovekDAO sDAO) {
+
+
+        SirKoves sirkovesVal = new SirKoves();
+        sirkovesVal.setNev(sirkovesNev.getText());
+        sirkovesVal.setElerhetoseg(sirkovesEler.getText());
+        sirkovesVal.setCim(sirkovesCim.getText());
+        sirkovesVal.setKovek(sirkovesKovek.getSelectionModel().getSelectedItem().toString());
+        sirkovesVal.setUrnak(sirkovesUrnak.getSelectionModel().getSelectedItem().toString());
+        sDAO.saveSirkove(sirkovesVal);
+        System.out.println("Az adatok felvéve");
     }
 
     /*
