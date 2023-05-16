@@ -66,10 +66,11 @@ public class CreditCemeteryController implements Initializable {
 
 
     @FXML
-    private ChoiceBox<String> temetValchoicebox;
+    private ChoiceBox<String> temetValchoicebox,sirkovesChoiceBox;
     @FXML private ChoiceBox skKovekChoiceBox,skUrnakChoiceBox;
     @FXML private ChoiceBox torlesCustomers,torlesTV,torlesSK,torlesK,torlesU;
     @FXML private TextField skNev,skCim,skEler;
+    @FXML private TextField cNev,cSzulHely,cSzulIdo,cHalIdo;
 
 
 
@@ -291,6 +292,14 @@ public class CreditCemeteryController implements Initializable {
             tvsnev.add(e.getNev());
         }
         temetValchoicebox.setItems(tvsnev);
+
+        SirkovekDAO sksDAO = new JPASirkovekDAO();
+        List<SirKoves> sks = sksDAO.getSK();
+        ObservableList<String> sksNev = FXCollections.observableArrayList();
+        for (SirKoves e : sks){
+            sksNev.add(e.getNev());
+        }
+        sirkovesChoiceBox.setItems(sksNev);
     }
 
     private void writeData(CustomerDAO cDAO) {
@@ -346,14 +355,14 @@ public class CreditCemeteryController implements Initializable {
         }
         else {
             System.out.println(temetValNev.getText());
-            System.out.println(temetValTipBox.getSelectionModel().getSelectedItem().toString());
+            System.out.println(temetValTipBox.getSelectionModel().getSelectedItem());
             System.out.println(temetValCim.getText());
             System.out.println(temetValEler.getText());
             TemetkezesiVallalkozo tvnew = new TemetkezesiVallalkozo();
             tvnew.setCim(temetValCim.getText());
             tvnew.setElerhetoseg(temetValEler.getText());
             tvnew.setNev(temetValNev.getText());
-            tvnew.setTemetesitipus(temetValTipBox.getSelectionModel().getSelectedItem().toString());
+            tvnew.setTemetesitipus(temetValTipBox.getSelectionModel().getSelectedItem());
 
             cDAO.saveTemetkezesiVallalkozo(tvnew);
         }
@@ -399,11 +408,35 @@ public class CreditCemeteryController implements Initializable {
         sk.setElerhetoseg(skEler.getText());
         sk.setKovek(skKovekChoiceBox.getSelectionModel().getSelectedItem().toString());
         sk.setUrnak(skUrnakChoiceBox.getSelectionModel().getSelectedItem().toString());
-
         skDAO.saveSirkove(sk);
     }
     @FXML void addCustomer(){
+        CustomerDAO cDAO = new JPACustomerDAO();
+        SirkovekDAO skDAO = new JPASirkovekDAO();
+        CemeteryDAO cemDAO = new JPACemeteryDAO();
 
+        List<TemetkezesiVallalkozo> temetValList = cemDAO.getTV();
+        ObservableList<String> temetvalNev = FXCollections.observableArrayList();
+
+        List<SirKoves> sirKovesList = skDAO.getSK();
+        ObservableList<String> sirkovesNev = FXCollections.observableArrayList();
+
+        Customer cus = new Customer();
+        cus.setNev(cNev.getText());
+        cus.setSzuletesiHely(cSzulHely.getText());
+        cus.setSzuletesiIdo(LocalDate.parse(cSzulIdo.getText()));
+        cus.setHalalIdopontja(LocalDate.parse(cHalIdo.getText()));
+        for(TemetkezesiVallalkozo tv : temetValList){
+            if(tv.getNev().equals(temetValchoicebox.getSelectionModel().getSelectedItem().toString())){
+                cus.setTemetkezesiVallalkozo(tv);
+            }
+        }
+        for(SirKoves sk : sirKovesList){
+            if(sk.getNev().equals(sirkovesChoiceBox.getSelectionModel().getSelectedItem().toString())){
+                cus.setSirkoves(sk);
+            }
+        }
+        cDAO.saveCustomer(cus);
     }
 
     /*
