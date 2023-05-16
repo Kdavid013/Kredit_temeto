@@ -19,6 +19,10 @@ import java.util.Scanner;
 import hu.unideb.inf.model.Cemetery.TemetkezesiVallalkozo;
 import hu.unideb.inf.model.Customer.CustomerDAO;
 import hu.unideb.inf.model.Customer.JPACustomerDAO;
+import hu.unideb.inf.model.Sirkovek.JPASirkovekDAO;
+import hu.unideb.inf.model.Sirkovek.Kovek;
+import hu.unideb.inf.model.Sirkovek.SirkovekDAO;
+import hu.unideb.inf.model.Sirkovek.Urnak;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -52,6 +56,10 @@ public class CreditCemeteryController implements Initializable {
     @FXML private TextField temetValCim;
     @FXML
     private ChoiceBox<String> temetValTipBox;
+    @FXML private TextField urnakNev;
+    @FXML private TextField urnakAr;
+    @FXML private TextField kovekNev;
+    @FXML private TextField kovekAr;
 
     @FXML
     private TableView keresCustomerTable;
@@ -61,6 +69,24 @@ public class CreditCemeteryController implements Initializable {
     @FXML
     private ChoiceBox<String> temetValchoicebox;
 
+
+
+    @FXML
+    void handleRockButtonPushed(ActionEvent actionEvent) {
+        try (SirkovekDAO kDAO = new JPASirkovekDAO()) {
+            handleData3(kDAO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void handleButtonPushed(ActionEvent event) {
+        try (SirkovekDAO sDAO = new JPASirkovekDAO()) {
+            handleData2(sDAO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML
@@ -185,6 +211,23 @@ public class CreditCemeteryController implements Initializable {
 
             cDAO.saveTemetkezesiVallalkozo(tvnew);
         }
+    }
+
+    private void handleData2(SirkovekDAO sDAO) {
+            Urnak urVal = new Urnak();
+            urVal.setNev(urnakNev.getText());
+            urVal.setAr(Integer.parseInt(urnakAr.getText()));
+            sDAO.saveUrnak(urVal);
+            System.out.println("Az adatok felvéve");
+    }
+    private void handleData3(SirkovekDAO sDAO) {
+
+
+            Kovek koVal = new Kovek();
+            koVal.setNev(kovekNev.getText());
+            koVal.setAr(Integer.parseInt(kovekAr.getText()));
+            sDAO.saveKovek(koVal);
+            System.out.println("Az adatok felvéve");
     }
 
     /*
